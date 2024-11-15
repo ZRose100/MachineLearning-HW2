@@ -6,6 +6,9 @@ Both can be run on a terminal (as is expected), but both also include a line in 
 
 In the rnn.py file, summing the outputs of the rnn function seemed unnecessary, as focusing on the final hidden layer was all that mattered for my architecture. Thus, this part has been left blank but should not affect the execution.
 
+The word_embedding.pkl file was too large to be uploaded directly to this repository, so the file has been uploaded to my personal Drive and the link to access this file is here: https://drive.google.com/file/d/1Wca7kbLNLS6dtmvQyXIauCRKSBkuS1pU/view?usp=sharing
+. I assume the TA already has this file on his computer, but I figured it would still be good to add the file regardless.
+
 Thank you!
 
 ---
