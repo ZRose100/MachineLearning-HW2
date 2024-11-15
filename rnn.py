@@ -31,12 +31,16 @@ class RNN(nn.Module):
 
     def forward(self, inputs):
         # [to fill] obtain hidden layer representation (https://pytorch.org/docs/stable/generated/torch.nn.RNN.html)
-        _, hidden = 
+        _, hidden = self.rnn(inputs)
+
         # [to fill] obtain output layer representations
+        output_representation = self.W(hidden[-1])
 
         # [to fill] sum over output 
+        # this is unnecessary as the final hidden state is a sufficient representation and can be used easily in this program
 
         # [to fill] obtain probability dist.
+        predicted_vector = self.softmax(output_representation)
 
         return predicted_vector
 
@@ -65,6 +69,9 @@ if __name__ == "__main__":
     parser.add_argument("--test_data", default = "to fill", help = "path to test data")
     parser.add_argument('--do_train', action='store_true')
     args = parser.parse_args()
+    # comment out previous line and replace with line below (with any given parameters) for Colab functionality
+    # args = parser.parse_args(['--hidden_dim', '128', '--epochs', '10', '--train_data', 'MachineLearning-HW2/training.json', '--val_data', 'MachineLearning-HW2/validation.json'])
+
 
     print("========== Loading data ==========")
     train_data, valid_data = load_data(args.train_data, args.val_data) # X_data is a list of pairs (document, y); y in {0,1,2,3,4}
