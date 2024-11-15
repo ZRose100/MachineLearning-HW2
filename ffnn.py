@@ -32,10 +32,13 @@ class FFNN(nn.Module):
 
     def forward(self, input_vector):
         # [to fill] obtain first hidden layer representation
+        hidden_representation = self.activation(self.W1(input_vector))
 
         # [to fill] obtain output layer representation
+        output_representation = self.W2(hidden_representation)
 
         # [to fill] obtain probability dist.
+        predicted_vector = self.softmax(output_representation)
 
         return predicted_vector
 
@@ -105,6 +108,9 @@ if __name__ == "__main__":
     parser.add_argument("--test_data", default = "to fill", help = "path to test data")
     parser.add_argument('--do_train', action='store_true')
     args = parser.parse_args()
+    # comment out previous line and replace with line below for Colab functionality
+    # args = parser.parse_args(['--hidden_dim', '128', '--epochs', '10', '--train_data', 'MachineLearning-HW2/training.json', '--val_data', 'MachineLearning-HW2/validation.json'])
+
 
     # fix random seeds
     random.seed(42)
